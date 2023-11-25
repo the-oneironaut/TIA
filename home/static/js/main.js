@@ -119,3 +119,53 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+function calculatePrice() {
+    let numVideos = document.getElementById('num-videos').value;
+        let style = document.getElementById('style').value;
+        let duration = document.getElementById('duration').value;
+
+        let price = 0;
+
+        if (style == 'simple'){
+            price += 50;
+        }
+        else if (style == 'complex'){
+            price += 100;
+            if (duration <= 15) {
+                price += 0;
+            } 
+            else if (duration <= 30) {
+                price += 20;
+            } else if (duration <= 45) {
+                price += 40;
+            } else if (duration <= 60) {
+                price += 60;
+            } else {
+                price += 80;
+            }
+        }
+
+        price *= numVideos;
+
+    let priceElement = document.getElementById('price');
+    priceElement.innerHTML = '$'+price;
+}
+
+document.getElementById('num-videos').addEventListener('change', calculatePrice);
+
+function incrementValue() {
+    var value = parseInt(document.getElementById('num-videos').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('num-videos').value = value;
+    calculatePrice();
+}
+
+function decrementValue() {
+    var value = parseInt(document.getElementById('num-videos').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('num-videos').value = value;
+    calculatePrice()
+}
