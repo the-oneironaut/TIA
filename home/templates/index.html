@@ -1,0 +1,114 @@
+  {% extends 'base.html' %}
+
+  {% load static %}
+  {% block body %}
+  <div class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#styles">STYLES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#pricing">PRICING</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+</div>
+    <div class="logo-container">
+      <img src="{% static 'images/logo.png' %}" alt="Application Logo">
+    </div>
+    <div class="title-container">
+      <h1 class="logo-title">THE INTELLECT ANIMATIONS</h1>
+    </div>
+    <div class="page">
+
+      <div class="text-container">
+        <p class="page-text">Enhance Your Content with Engaging Animations.</p>
+        <p class="page-text">Let our animations bring your creative ideas to life, crafting captivating stories.</p>
+        <!-- <p class="page-text">Unlock the potential of Short-Form Animations to elevate your vision.</p> -->
+        <p class="page-text">Embark on a creative journey with us, exploring limitless possibilities for your content.</p>
+      </div>
+  <button class="connect-button">
+    <a href="#" class="btn2"><span class="spn2">CONNECT</span></a>
+  </button>
+</div>
+<div class="page" id="styles">
+  <div class="content-container">
+  <h2 class="page-heading">STYLES</h2>
+  <div class="sections-container">
+    <div class="simple-section">
+      <h3 class="section-heading">SIMPLE</h3>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video class="video" id="simple1" loop autoplay muted onerror="console.log('Error: ' + this.error.code);">
+            <source src="{% static 'videos/simple1.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button class="mute-button" onclick="toggleMute()">Mute</button>
+        </div>
+        <div class="video-wrapper">
+        <video class="video middle-video" id="simple2" loop autoplay muted onerror="console.log('Error: ' + this.error.code);">
+          <source src="{% static 'videos/simple2.mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="mute-button" onclick="toggleMute()">Mute</button>
+        </div>
+        <div class="video-wrapper">
+        <video class="video" id="simple3" loop autoplay muted onerror="console.log('Error: ' + this.error.code);">
+          <source src="{% static 'videos/simple3.mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="mute-button" onclick="toggleMute()">Mute</button>
+      </div>
+      </div>
+    </div>
+    <div class="complex-section">
+      <h3 class="section-heading">COMPLEX</h3>
+      <div class="video-container">
+        <div class="video"></div>
+        <div class="video middle-video"></div>
+        <div class="video"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="page" id="pricing">
+  <h2 class="page-heading">PRICING</h2>
+  <!-- Add the content for the pricing page here -->
+
+  <form id="pricing-form">
+    <label for="num-videos">Number of videos:</label>
+    <input type="number" id="num-videos" name="num-videos" min="1" value="10">
+
+    <label for="style">Style:</label>
+    <select id="style" name="style">
+      <option value="simple">Simple</option>
+      <option value="complex">Complex</option>
+    </select>
+
+    <label for="duration">Duration:</label>
+    <input type="range" id="duration" name="duration" min="15" max="60" step="15" value="15">
+    <span id="duration-label">15s</span>
+
+    <label for="price">Price:</label>
+    <span id="price">$500</span>
+  </form>
+
+</div>
+<div class="page" id="contact">
+  <h2 class="page-heading">CONTACT</h2>
+  <!-- Add the content for the contact page here -->
+</div>
+  {% endblock %}
