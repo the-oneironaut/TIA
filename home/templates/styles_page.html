@@ -1,0 +1,43 @@
+{% load static %}
+
+<div class="page" id="styles">
+    <div class="content-container">
+    <h2 class="page-heading">STYLES</h2>
+    <div class="sections-container flex-container">
+      <div class="simple-section">
+        <h3 class="section-heading">SIMPLE</h3>
+        <div class="video-container">
+          <div class="video-wrapper">
+            <video class="video" id="simple1" loop autoplay muted onerror="console.log('Error: ' + this.error.code);">
+              <source src="{% static 'videos/simple1.mp4' %}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <button class="mute-button" onclick="toggleMute()">Mute</button>
+          </div>
+          <div class="video-wrapper">
+          <video class="video middle-video" id="simple2" loop autoplay muted onerror="console.log('Error: ' + this.error.code);">
+            <source src="{% static 'videos/simple2.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button class="mute-button" onclick="toggleMute()">Mute</button>
+          </div>
+          <div class="video-wrapper">
+          <video class="video" id="simple3" loop autoplay muted onerror="console.log('Error: ' + this.error.code);">
+            <source src="{% static 'videos/simple3.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button class="mute-button" onclick="toggleMute()">Mute</button>
+        </div>
+        </div>
+      </div>
+      <div class="complex-section">
+        <h3 class="section-heading">COMPLEX</h3>
+        <div class="video-container">
+          <div class="video"></div>
+          <div class="video middle-video"></div>
+          <div class="video"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
