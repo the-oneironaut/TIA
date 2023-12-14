@@ -540,6 +540,7 @@ button[type="submit"]:hover #telegram-icon {
 }
 
 .animationType select{
+    border-radius: 5px;
     background-color: transparent;
     color: white;
     border: 1px solid white;
