@@ -525,20 +525,21 @@ button[type="submit"]:hover #telegram-icon {
     }
 
     .contact-form input,
-    .contact-form textarea {
+    .contact-form textarea,
+    .animationType select {
         width: 140%;
     }
 }
 
 @media (max-width: 992px) {
     .contact-form input,
-    .contact-form textarea {
+    .contact-form textarea,
+    .animationType select {
         width: 100%;
     }
 }
 
 .animationType select{
-    width: 140%;
     background-color: transparent;
     color: white;
     border: 1px solid white;
