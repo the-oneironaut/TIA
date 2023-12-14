@@ -537,6 +537,24 @@ button[type="submit"]:hover #telegram-icon {
     }
 }
 
+.animationType select{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.animationType select::after{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.animationType select:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+}
+
 .social-media-links {
     position: absolute;
     left: 50%;
