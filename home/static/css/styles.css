@@ -603,6 +603,7 @@ button[type="submit"]:hover #telegram-icon {
   
  .social-media-links ul li a:hover .icon {
     transform: rotateY(360deg);
+    color: black;
   }
   
  .social-media-links ul li a:before {
@@ -621,14 +622,6 @@ button[type="submit"]:hover #telegram-icon {
     top: 0;
   }
   
-.social-media-links ul li:nth-child(1) a:before {
-    background: linear-gradient(to right, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+.social-media-links ul li a:before {
+    background: white;
 }
-  
- .social-media-links ul li:nth-child(2) a:before{
-    background: #ff0000;
-  }
-  
- .social-media-links ul li:nth-child(3) a:before {
-    background: #0077b5;
-  }
