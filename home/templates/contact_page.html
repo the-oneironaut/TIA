@@ -4,6 +4,7 @@
     <h2 class="page-heading">CONTACT</h2>
     <div class="container">
       <form class="contact-form">
+        {% csrf_token %}
         <div class="form-group">
           <label for="name">NAME<span class="required">*</span></label> <br>
           <input type="text" id="name" name="name" required>
@@ -15,14 +16,14 @@
         </div>
   
         <div class="form-group">
-          <label for="whatsapp">WHATSAPP NUMBER (OPTIONAL)</label> <br>
-          <input type="tel" id="whatsapp" name="whatsapp">
+          <label for="whatsapp_no">WHATSAPP NUMBER (OPTIONAL)</label> <br>
+          <input type="tel" id="whatsapp" name="whatsapp_no">
         </div>
 
         <div class="form-group">
-            <label for="animationType">ANIMATION TYPE</label> <br>
+            <label for="animation_type">ANIMATION TYPE</label> <br>
             <div class="animationType">
-            <select id="animationType" name="animationType">
+            <select id="animationType" name="animation_type">
                 <option value="simple">SIMPLE</option>
                 <option value="complex">COMPLEX</option>
                 <!-- <option value="lineArt">LINE ART</option>
@@ -46,6 +47,7 @@
           <i class="fab fa-telegram-plane" id="telegram-icon"></i>
           SEND MESSAGE
         </button>
+        <div id="response-message"></div>
   
         <!-- Social Media Links -->
         <div class="social-media-links">
@@ -65,3 +67,34 @@
       </form>
     </div>
   </div>
+
+  <script>
+    document.querySelector('.contact-form').addEventListener('submit', async (event) => {
+    console.log('Submitted!');
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    console.log(csrfToken)
+
+    const response = await fetch('/api/contact-enquiries', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken,
+        },
+        body: JSON.stringify(data),
+    });
+
+    const responseMessageElement = document.getElementById('response-message');
+
+    if (response.ok) {
+        responseMessageElement.textContent = 'Your message has been sent successfully.';
+        responseMessageElement.style.color = 'green';
+    } else {
+        responseMessageElement.textContent = 'There was an error sending your message.';
+        responseMessageElement.style.color = 'red';
+    }
+});
+  </script>

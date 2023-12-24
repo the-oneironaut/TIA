@@ -169,3 +169,5 @@ function decrementValue() {
     document.getElementById('num-videos').value = value;
     calculatePrice()
 }
+
+// Client-side JavaScript
